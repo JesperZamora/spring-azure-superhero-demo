@@ -21,6 +21,11 @@ public class SuperheroController {
     public SuperheroController(ApplicationContext context, @Value("${superhero.repository.impl}") String impl){
         iSuperheroRepository = (ISuperheroRepository) context.getBean(impl);
     }
+    
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "Welcome to Azure-DEMO";
+    }   
 
     @GetMapping()
     public String getHeroInformation(Model model) {
